@@ -5,30 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ultimate Packing List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   </head>
   <body>
-    <h1>Ultimate Packing List</h1>
-    <form action="/add" method="post">
-      <div>
-        <label for="title">Add New Item</label>
-        <input type="text" name="title" /><br />
-        <button type="submit">Add</button>
-      </div>
-    </form>
+    <div style="margin-top: 50px" class="ui container">
+      <h1 class="ui center aligned header">Ultimate Packing List</h1>
+      <form class="ui form" action="/add" method="post">
+        <div class="field">
+          <label for="title">Add New Item</label>
+          <input type="text" name="title" /><br /><br />
+          <button class="ui green button" type="submit">Add</button>
+        </div>
+      </form>
 
-    {% for item in item_list %}
-    <p>{{ item.id }} | {{ item.title }}</p>
-    {% if item.needed == False %}
-    <span>Not Needed</span>
-    {% elif item.packed == False %}
-    <span>Not Yet Packed</span>
-    {% else %}
-    <span>Packed</span>
-    {% endif %}
-
-    <a href="">Toggle Packed</a>
-    <a href="">Toggle Needed</a>
-    <a href="">Delete</a>
-    {% endfor %}
+      {% for item in item_list %}
+      <br />
+      <p class="ui segment" style="background-color: grey">
+        <span class="ui big header">
+          {{ item.title }}
+          <!-- <a class="ui red button" href="/delete/{{ item.id }}">Delete</a> -->
+        </span>
+        <br />
+        {% if item.needed == False %}
+        <span>Status: Not Needed</span>
+        <br /><br />
+        <!-- <span class="ui gray label">Not Needed</span> -->
+        <a class="ui gray button" href="/update/{{ item.id }}"
+          >Item Needed After All</a
+        >
+        {% elif item.packed == False %}
+        <span>Status: Needed | Not Yet Packed</span>
+        <br /><br />
+        <!-- <span class="ui blue label">Needed</span> |
+      <span class="ui gray label">Not Yet Packed</span><br /> -->
+        <span
+          ><a class="ui blue button" href="/update/{{ item.id }}"
+            >Don't Need Item</a
+          ></span
+        >
+        <!-- <span>Not Yet Packed</span> -->
+        <a class="ui purple button" href="/toggle_packed/{{ item.id }}"
+          >Pack Item</a
+        >
+        {% else %}
+        <span>Status: Packed</span>
+        <br /><br />
+        <!-- <span class="ui green label">Packed</span> -->
+        <a class="ui green button" href="/toggle_packed/{{ item.id }}"
+          >Unpack Item</a
+        >
+      </p>
+      {% endif %} {% endfor %}
+    </div>
   </body>
 </html>

@@ -29,19 +29,27 @@ def add():
   db.session.commit()
   return redirect(url_for("index"))
 
-@app.route('/toggle-packed/<int:item_id>', methods=['POST'])
-def toggle_packed():
+@app.route('/toggle_packed/<int:item_id>')
+def toggle_packed(item_id):
   #query db for id and modify packed boolean
   item = Item.query.filter_by(id=item_id).first()
   item.packed = not item.packed
   db.session.commit()
   return redirect(url_for("index"))
 
-@app.route('/toggle-needed/<int:item_id>', methods=['POST'])
-def toggle_needed():
-  #query db for id and modify packed boolean
+@app.route('/update/<int:item_id>')
+def update(item_id):
+  #query db for id and modify needed boolean
   item = Item.query.filter_by(id=item_id).first()
   item.needed = not item.needed
+  db.session.commit()
+  return redirect(url_for("index"))
+
+@app.route('/delete/<int:item_id>')
+def delete(item_id):
+  #query db for id and delete item
+  item = Item.query.filter_by(id=item_id).first()
+  db.session.delete(item)
   db.session.commit()
   return redirect(url_for("index"))
 
