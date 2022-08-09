@@ -22,7 +22,7 @@
   (Hidden delete button to completely delete an item from the DB - it's to the right of the visible buttons.)
 
 - **Languages/Tools Used:**<br/>
-  Python, Jinja2, SemanticUI, HTML/CSS, PythonAnywhere
+  Flask (Python, Jinja2, SQLite), SemanticUI, HTML/CSS, PythonAnywhere
 
 - **Developer:**<br/>
   [Nicole Aldurien](https://github.com/nicolealdurien)
