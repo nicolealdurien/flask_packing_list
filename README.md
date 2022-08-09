@@ -3,7 +3,7 @@
 - **Live link:**
   https://ultimatepackinglist.pythonanywhere.com
 
-![](https://github.com/nicolealdurien/wasteNOT/blob/master/static/img/frontpage.png?raw=true)
+![](https://github.com/nicolealdurien/flask_packing_list/blob/main/screenshot.png?raw=true)
 <br /> <br /><br />
 
 - **Purpose of the app:** <br/><br/>
@@ -23,7 +23,7 @@
   (Hidden delete button to completely delete an item from the DB - it's to the right of the visible buttons.)
 
 - **Languages/Tools Used:**
-  Python, Jinja2, HTML/CSS, PythonAnywhere
+  Python, Jinja2, SemanticUI, HTML/CSS, PythonAnywhere
 
 - **Developer:**
   [Nicole Aldurien](https://github.com/nicolealdurien)
