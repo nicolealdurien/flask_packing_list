@@ -28,7 +28,7 @@
       <br />
       {% for item in item_list %}
       <br />
-      <p class="ui segment">
+      <div class="ui segment">
         <span class="ui big header"> {{ item.title }} </span>
         <br />
         {% if item.needed == False %}
@@ -64,10 +64,9 @@
           Pack Item
         </a>
         <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
-
         {% else %}
         <span>Status: Packed</span>
-        <br />
+        <br /><br />
         <a
           class="ui green button"
           href="/toggle_packed/{{ item.id }}"
@@ -76,8 +75,9 @@
           Unpack Item
         </a>
         <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
-      </p>
-      {% endif %} {% endfor %}
+        {% endif %}
+      </div>
+      {% endfor %}
     </div>
   </body>
 </html>
