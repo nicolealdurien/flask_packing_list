@@ -13,51 +13,69 @@
   </head>
   <body>
     <div style="margin-top: 50px" class="ui container">
-      <h1 class="ui center aligned header">Ultimate Packing List</h1>
+      <h1 class="ui center aligned header" style="margin-bottom: 30px">
+        Ultimate Packing List
+      </h1>
       <form class="ui form" action="/add" method="post">
         <div class="field">
-          <label for="title">Add New Item</label>
-          <input type="text" name="title" /><br /><br />
-          <button class="ui green button" type="submit">Add</button>
+          <label for="title" style="font-size: 1.25em">Add New Item</label>
+          <input type="text" name="title" /><br />
+          <button class="ui blue button" style="margin-top: 10px" type="submit">
+            Add
+          </button>
         </div>
       </form>
-
+      <br />
       {% for item in item_list %}
       <br />
-      <p class="ui segment" style="background-color: grey">
-        <span class="ui big header">
-          {{ item.title }}
-          <!-- <a class="ui red button" href="/delete/{{ item.id }}">Delete</a> -->
-        </span>
+      <p class="ui segment">
+        <span class="ui big header"> {{ item.title }} </span>
         <br />
         {% if item.needed == False %}
         <span>Status: Not Needed</span>
-        <br /><br />
-        <!-- <span class="ui gray label">Not Needed</span> -->
-        <a class="ui gray button" href="/update/{{ item.id }}"
-          >Item Needed After All</a
+        <br />
+        <br />
+        <a
+          role="button"
+          class="ui gray button"
+          href="/toggle_needed/{{ item.id }}"
         >
+          Item Needed After All
+        </a>
+        <span style></span>
+        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
         {% elif item.packed == False %}
         <span>Status: Needed | Not Yet Packed</span>
         <br /><br />
-        <!-- <span class="ui blue label">Needed</span> |
-      <span class="ui gray label">Not Yet Packed</span><br /> -->
         <span
-          ><a class="ui blue button" href="/update/{{ item.id }}"
-            >Don't Need Item</a
-          ></span
+          ><a
+            class="ui blue button"
+            href="/toggle_needed/{{ item.id }}"
+            role="button"
+          >
+            Don't Need Item
+          </a>
+        </span>
+        <a
+          class="ui purple button"
+          href="/toggle_packed/{{ item.id }}"
+          role="button"
         >
-        <!-- <span>Not Yet Packed</span> -->
-        <a class="ui purple button" href="/toggle_packed/{{ item.id }}"
-          >Pack Item</a
-        >
+          Pack Item
+        </a>
+        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+
         {% else %}
         <span>Status: Packed</span>
         <br /><br />
-        <!-- <span class="ui green label">Packed</span> -->
-        <a class="ui green button" href="/toggle_packed/{{ item.id }}"
-          >Unpack Item</a
+        <a
+          class="ui green button"
+          href="/toggle_packed/{{ item.id }}"
+          role="button"
         >
+          Unpack Item
+        </a>
+        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
       </p>
       {% endif %} {% endfor %}
     </div>

@@ -17,7 +17,6 @@ class Item(db.Model):
 def index():
   #show all items
   item_list = Item.query.all()
-  print(item_list)
   return render_template('base.html', item_list=item_list)
 
 @app.route('/add', methods=['POST'])
@@ -37,9 +36,9 @@ def toggle_packed(item_id):
   db.session.commit()
   return redirect(url_for("index"))
 
-@app.route('/update/<int:item_id>')
-def update(item_id):
-  #query db for id and modify needed boolean
+@app.route('/toggle_needed/<int:item_id>')
+def toggle_needed(item_id):
+  #query db for id and modify packed boolean
   item = Item.query.filter_by(id=item_id).first()
   item.needed = not item.needed
   db.session.commit()
