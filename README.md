@@ -9,21 +9,20 @@
 - **Purpose of the app:** <br/><br/>
   This app was created to serve as a web-based packing list for overpackers, pre-populated with many items. Choices can be marked as unneeded or as packed to indicate
 
-- **Intended Future Upgrades:**
+- **Intended Future Upgrades:**<br/><br/>
   Adding user login/registration and ability for each user to have their own list.
 
   Adding the ability to edit item names.
 
-- **Features:**
-
+- **Features:**<br/><br/>
   Ability to add items to the list.
 
   Ability to mark items as needed/not needed and packed/not packed.
 
   (Hidden delete button to completely delete an item from the DB - it's to the right of the visible buttons.)
 
-- **Languages/Tools Used:**
+- **Languages/Tools Used:**<br/><br/>
   Python, Jinja2, SemanticUI, HTML/CSS, PythonAnywhere
 
-- **Developer:**
+- **Developer:**<br/><br/>
   [Nicole Aldurien](https://github.com/nicolealdurien)
