@@ -1,7 +1,7 @@
 # Ultimate Packing List
 
 - **Live link:**
-  https://ultimatepackinglist.pythonanywhere.com
+  https://overpackersunite.pythonanywhere.com
 
 ![](https://github.com/nicolealdurien/flask_packing_list/blob/main/screenshot.png?raw=true)
 <br /> <br />
