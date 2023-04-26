@@ -14,6 +14,10 @@
 
   Adding the ability to edit item names.
 
+  Adding the ability to sort items alphabetically.
+  
+  Adding category headers like Clothing or Hygiene that related items appear beneath.
+
 - **Features:**<br/>
   Ability to add items to the list.
 
