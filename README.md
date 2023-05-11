@@ -18,12 +18,15 @@
   
   Adding category headers like Clothing or Hygiene that related items appear beneath.
 
-- **Features:**<br/>
+- **Initial Features:**<br/>
   Ability to add items to the list.
 
   Ability to mark items as needed/not needed and packed/not packed.
 
   (Hidden delete button to completely delete an item from the DB - it's to the right of the visible buttons.)
+
+- **Updates Added:**<br/>
+  2023-05-11: Redeploy under new PythonAnywhere account, name change, corresponding README updates
 
 - **Languages/Tools Used:**<br/>
   Flask (Python, Jinja2, SQLite), SemanticUI, HTML/CSS, PythonAnywhere

@@ -11,21 +11,21 @@ class Item(db.Model):
   title = db.Column(db.String(100))
   needed = db.Column(db.Boolean)
   packed = db.Column(db.Boolean)
-
-
+ 
 @app.route('/')
 def index():
   #show all items
-  item_list = Item.query.all()
+  item_list = Item.query.order_by(Item.title).all()
   return render_template('base.html', item_list=item_list)
 
 @app.route('/add', methods=['POST'])
 def add():
   #add new item
   title = request.form.get("title")
-  new_item = Item(title=title, needed=True, packed=False)
-  db.session.add(new_item)
-  db.session.commit()
+  if title != '':
+    new_item = Item(title=title, needed=True, packed=False)
+    db.session.add(new_item)
+    db.session.commit()
   return redirect(url_for("index"))
 
 @app.route('/toggle_packed/<int:item_id>')
