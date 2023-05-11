@@ -3,7 +3,7 @@
 - **Live link:**
   https://overpackersunite.pythonanywhere.com
 
-![](https://github.com/nicolealdurien/flask_packing_list/blob/main/screenshot.png?raw=true)
+![](https://github.com/nicolealdurien/flask_packing_list/blob/main/OUscreenshot.png?raw=true)
 <br /> <br />
 
 - **Purpose of the app:** <br/>
