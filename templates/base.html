@@ -24,58 +24,59 @@
       </form>
       <br />
       <h2 style="font-size: 1.25em">Current List</h2>
-
-      {% for item in item_list %}
-      <div class="ui segment">
-        <span class="ui big header"> {{ item.title }} </span>
-        <br />
-        {% if item.needed == False %}
-        <span>Status: Not Needed</span>
-        <br />
-        <br />
-        <a
-          role="button"
-          class="gray OUbutton"
-          href="/toggle_needed/{{ item.id }}"
-        >
-          Item Needed After All
-        </a>
-        <span style></span>
-        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
-        {% elif item.packed == False %}
-        <span>Status: Needed | Not Yet Packed</span>
-        <br /><br />
-        <span
-          ><a
-            class="blue-500 OUbutton"
+      <div class="list-wrapper">
+        {% for item in item_list %}
+        <div class="item-wrapper">
+          <span class="item-title"> {{ item.title }} </span>
+          <br />
+          {% if item.needed == False %}
+          <span>Status: Not Needed</span>
+          <br />
+          <br />
+          <a
+            role="button"
+            class="gray OUbutton"
             href="/toggle_needed/{{ item.id }}"
+          >
+            Item Needed After All
+          </a>
+          <span style></span>
+          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          {% elif item.packed == False %}
+          <span>Status: Needed | Not Yet Packed</span>
+          <br /><br />
+          <span
+            ><a
+              class="blue-500 OUbutton"
+              href="/toggle_needed/{{ item.id }}"
+              role="button"
+            >
+              Don't Need Item
+            </a>
+          </span>
+          <a
+            class="blue-100 OUbutton"
+            href="/toggle_packed/{{ item.id }}"
             role="button"
           >
-            Don't Need Item
+            Pack Item
           </a>
-        </span>
-        <a
-          class="blue-100 OUbutton"
-          href="/toggle_packed/{{ item.id }}"
-          role="button"
-        >
-          Pack Item
-        </a>
-        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
-        {% else %}
-        <span>Status: Packed</span>
-        <br /><br />
-        <a
-          class="blue-300 OUbutton"
-          href="/toggle_packed/{{ item.id }}"
-          role="button"
-        >
-          Unpack Item
-        </a>
-        <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
-        {% endif %}
+          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          {% else %}
+          <span>Status: Packed</span>
+          <br /><br />
+          <a
+            class="blue-300 OUbutton"
+            href="/toggle_packed/{{ item.id }}"
+            role="button"
+          >
+            Unpack Item
+          </a>
+          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          {% endif %}
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </body>
 </html>
