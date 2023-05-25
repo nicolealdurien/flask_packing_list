@@ -13,18 +13,19 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   </head>
   <body>
-    <div style="margin-top: 50px" class="ui container">
+    <div class="OUcontainer">
       <h1 class="page-title">Overpackers Unite</h1>
       <form class="ui form" action="/add" method="post">
         <div class="field">
           <label for="title" style="font-size: 1.25em">Add New Item</label>
           <input type="text" name="title" /><br />
-          <button class="navy OUbutton" type="submit">Add</button>
+          <button class="blue-300 OUbutton" type="submit">Add</button>
         </div>
       </form>
       <br />
+      <h2 style="font-size: 1.25em">Current List</h2>
+
       {% for item in item_list %}
-      <!-- <br /> -->
       <div class="ui segment">
         <span class="ui big header"> {{ item.title }} </span>
         <br />
@@ -34,7 +35,7 @@
         <br />
         <a
           role="button"
-          class="ui gray button"
+          class="gray OUbutton"
           href="/toggle_needed/{{ item.id }}"
         >
           Item Needed After All
@@ -46,7 +47,7 @@
         <br /><br />
         <span
           ><a
-            class="navy OUbutton"
+            class="blue-500 OUbutton"
             href="/toggle_needed/{{ item.id }}"
             role="button"
           >
@@ -54,7 +55,7 @@
           </a>
         </span>
         <a
-          class="ui purple button"
+          class="blue-100 OUbutton"
           href="/toggle_packed/{{ item.id }}"
           role="button"
         >
@@ -65,7 +66,7 @@
         <span>Status: Packed</span>
         <br /><br />
         <a
-          class="ui green button"
+          class="blue-300 OUbutton"
           href="/toggle_packed/{{ item.id }}"
           role="button"
         >
