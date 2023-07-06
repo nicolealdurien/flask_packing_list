@@ -15,15 +15,87 @@
   <body>
     <div class="OUcontainer">
       <h1 class="page-title">Overpackers Unite</h1>
-      <form class="ui form" action="/add" method="post">
+      <form class="ui form" action="/add-item" method="post">
         <div class="field">
           <label for="title" style="font-size: 1.25em">Add New Item</label>
-          <input type="text" name="title" /><br />
-          <button class="blue-300 OUbutton" type="submit">Add</button>
+          <input
+            type="text"
+            name="title"
+            style="margin: 2px 0px -17px 0px"
+          /><br /><br />
+          <button class="blue-300 OUbutton" type="submit">Add Item</button>
         </div>
       </form>
       <br />
-      <h2 style="font-size: 1.25em">Current List</h2>
+      <form class="ui form" action="/add-todo" method="post">
+        <div class="field">
+          <label for="title" style="font-size: 1.25em">Add New Task</label>
+          <input
+            type="text"
+            name="title"
+            style="margin: 2px 0px -17px 0px"
+          /><br /><br />
+          <button class="blue-300 OUbutton" type="submit">Add Task</button>
+        </div>
+      </form>
+      <br />
+      <h2 style="font-size: 1.25em">Task List</h2>
+      <div class="list-wrapper">
+        {% if todo_list == []%}
+        <span>No tasks have been added yet.</span>
+        {% endif %} {% for todo in todo_list %}
+        <div class="item-wrapper">
+          <span class="item-title"> {{ todo.title }} </span>
+          <br />
+          {% if todo.necessary == False %}
+          <span>Status: Not Necessary</span>
+          <br />
+          <br />
+          <a
+            role="button"
+            class="gray OUbutton"
+            href="/toggle_necessary/{{ todo.id }}"
+          >
+            Task Necessary After All
+          </a>
+          <span style></span>
+          <a style="color: white" href="/delete-task/{{ todo.id }}">Delete</a>
+          {% elif todo.complete == False %}
+          <span>Status: Necessary | Not Yet Complete</span>
+          <br /><br />
+          <span
+            ><a
+              class="blue-500 OUbutton"
+              href="/toggle_necessary/{{ todo.id }}"
+              role="button"
+            >
+              Task Unnecessary
+            </a>
+          </span>
+          <a
+            class="blue-100 OUbutton"
+            href="/toggle_complete/{{ todo.id }}"
+            role="button"
+          >
+            Task Completed
+          </a>
+          <a style="color: white" href="/delete-task/{{ todo.id }}">Delete</a>
+          {% else %}
+          <span>Status: Completed</span>
+          <br /><br />
+          <a
+            class="blue-300 OUbutton"
+            href="/toggle_complete/{{ todo.id }}"
+            role="button"
+          >
+            Mark Task Incomplete
+          </a>
+          <a style="color: white" href="/delete-task/{{ todo.id }}">Delete</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      <h2 style="font-size: 1.25em">Packing List</h2>
       <div class="list-wrapper">
         {% for item in item_list %}
         <div class="item-wrapper">
@@ -41,7 +113,7 @@
             Item Needed After All
           </a>
           <span style></span>
-          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          <a style="color: white" href="/delete-item/{{ item.id }}">Delete</a>
           {% elif item.packed == False %}
           <span>Status: Needed | Not Yet Packed</span>
           <br /><br />
@@ -61,7 +133,7 @@
           >
             Pack Item
           </a>
-          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          <a style="color: white" href="/delete-item/{{ item.id }}">Delete</a>
           {% else %}
           <span>Status: Packed</span>
           <br /><br />
@@ -72,7 +144,7 @@
           >
             Unpack Item
           </a>
-          <a style="color: white" href="/delete/{{ item.id }}">Delete</a>
+          <a style="color: white" href="/delete-item/{{ item.id }}">Delete</a>
           {% endif %}
         </div>
         {% endfor %}
