@@ -13,8 +13,6 @@
   Adding user login/registration and ability for each user to have their own list.
 
   Adding the ability to edit item names.
-
-  Adding the ability to sort items alphabetically.
   
   Adding category headers like Clothing or Hygiene that related items appear beneath.
 
@@ -26,9 +24,9 @@
   (Hidden delete button to completely delete an item from the DB - it's to the right of the visible buttons.)
 
 - **Updates Added:**<br/>
-  2023-05-11: Redeploy under new PythonAnywhere account, name change, corresponding README updates
+  2023-05-11: Redeployed under new PythonAnywhere account, name change, corresponding README updates. Added alphabetical item sort.
 
-  2023-07-05: Ability to separate items from tasks when adding to the list; UI and README updated accordingly.
+  2023-07-05: Added ability to separate items from tasks when adding to the list; UI and README updated accordingly.
 
 - **Languages/Tools Used:**<br/>
   Flask (Python, Jinja2, SQLite), SemanticUI, HTML/CSS, PythonAnywhere
