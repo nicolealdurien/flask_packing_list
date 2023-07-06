@@ -28,6 +28,8 @@
 - **Updates Added:**<br/>
   2023-05-11: Redeploy under new PythonAnywhere account, name change, corresponding README updates
 
+  2023-07-05: Ability to separate items from tasks when adding to the list; UI and README updated accordingly.
+
 - **Languages/Tools Used:**<br/>
   Flask (Python, Jinja2, SQLite), SemanticUI, HTML/CSS, PythonAnywhere
 
